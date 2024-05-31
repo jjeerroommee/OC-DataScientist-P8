@@ -23,8 +23,8 @@ def classif():
     model = load_model('./models')
         
     # Gets a dataframe of features from the post request's body
-    data_json = request.get_json()
-    data = pd.DataFrame(data_json['inputs'])
+    json_input = request.get_json()
+    data = pd.DataFrame(json_input['data'], index=json_input['id']
     
     # Creates a response object
     # [0] because it is launched on a single client
