@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+    <title>OC-DataScientist-P7</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+</head>
+<html>
+   <body>
+     <main>
+        <div class="px-4 py-3 my-2 text-left">
+            <h1 class="display-6 fw-bold text-primary">Comment utiliser cette API ?</h1>            
+            <p class="fs-5">
+                <b>Syntaxe pour invoquer la méthode 'predict_proba' du modèle d'apprentissage :<br>
+				 &lt;url&gt;/predict/</b><br>
+				 <br>
+				 Exemples d'url : <br>
+				  - &lt;url&gt; = 127.0.0.1:5000 pour une API hébergée sur un serveur flask local <br>
+				  - &lt;url&gt; = &lt;nom_de_l_application&gt;.azurewebsites.net pour une API hébergée sur Azure Web Apps <br>
+				<br>
+				A fournir en entrée : une structure json décrivant ces 8 variables qui correspondent aux most_important_features du modèle :<br>
+				['EXT_SOURCE_3', 'EXT_SOURCE_2', 'PAYMENT_RATE', 'EXT_SOURCE_1', 'NAME_FAMILY_STATUS_Married', 'CODE_GENDER_F', 'AMT_ANNUITY', 'APPROVED_CNT_PAYMENT_MEAN']<br>
+				<br>
+			
+				Résultats en sortie : une structure json avec 2 éléments : <br>
+				 - 'classe' : libellé binaire ("refusé" / "accepté") <br>
+				 - 'proba_echec' : float entre 0 et 1 représentant la probabilité de défaut de paiement calculée par le modèle (correspond à la classe y_target =1) <br> 
+				Si le dataframe contient plusieurs lignes, seul le score du premier client est retourné.
+            </p>
+		</div>
+     </main>      
+   </body>
+</html>
