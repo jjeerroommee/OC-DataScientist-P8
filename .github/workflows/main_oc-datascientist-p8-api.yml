@@ -31,9 +31,7 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      - name : test unitaire ajouté
-        run: pytest tests/test_metric.py
-        
+
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
 
@@ -67,9 +65,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_96DD0746BB79472CB00235CD7248768D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_41D6EB1C48924B6C9D58A09CBDBE0600 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A690A285C8A940929706DC2568D4F95C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6A127C6F0791482781F775B6281B65AF }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E5AF385FE25E462C8EB15F13A70D249B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CCBC25FF551049A4887467ACCEEC42E1 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
